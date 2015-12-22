@@ -1,0 +1,11 @@
+{
+  "name": "va_court_opinion_jsonifier",
+  "version": "0.0.0",
+  "description": "Converts information about Virginia Supreme Court opinions from the court's website into JSON",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
