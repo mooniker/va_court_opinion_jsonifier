@@ -21,9 +21,26 @@ app.get( '/scrape', function( req, res ) {
 
     if ( !error && response.statusCode == 200 ) { // status code 200 means OK
 
-      // and then we want to craft JSON from the info we extract
+      // initialize Cheerio with requested HTML
+      var $ = cheerio.load(html); // allows DOM transversal jQuery-style on $
 
-      res.send(html); // or, instead, just show us the HTML we got for now
+      var $opinions = $('p').slice(2); // get all p elements, discard first two
+      $opinions = $opinions.slice(0, $opinions.length - 2); // discard footer
+
+      var jsons = []; // initialize array for collecting all our JSONs
+
+      for ( var p = 0; p < $opinions.length; p += 1 ) {
+        var pContent = $opinions.eq(p).text();
+
+        // crafting JSON from the info extracted from each element in $opinions
+        // would happen here
+
+        jsons.push({
+          content: pContent // let's just push the contents of each p into JSON
+        });
+      }
+
+      res.json(jsons); // respond with our compilation of JSON
 
     } else if (error) { // if we fail to get a response from the Virginia server
       console.error(error);
