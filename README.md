@@ -1,4 +1,5 @@
 # JSONifier for Virginia Supreme Court slip opinion abstracts
+[![Dependency Status](https://david-dm.org/mooniker/va_court_opinion_jsonifier.svg)](https://david-dm.org/mooniker/va_court_opinion_jsonifier)
 
 This script, which was written to accompany [a tutorial on web scraping with Node.js](https://gist.github.com/mooniker/d5852ff5abb6f62e8967), extracts Virginia Supreme Court slip opinion information from the high court's webpage and convert the data to JSON.
 
@@ -20,5 +21,3 @@ The script uses `request` to get the webpage and `cheerio` (jQuery for the backe
    ]
 }
 ```
-
-
